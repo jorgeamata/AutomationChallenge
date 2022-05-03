@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Automation Challenge Tests]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Google Search Box(failed)">
+    <parameter name="browserName" value="chrome"/>
+    <parameter name="keyword" value="MAVEN"/>
+    <parameter name="url" value="https://www.google.com/"/>
+    <classes>
+      <class name="com.projectName.testCases.GoogleSearchTests">
+        <methods>
+          <include name="tearDown"/>
+          <include name="init"/>
+          <include name="validateSearchOnGoogle" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- com.projectName.testCases.GoogleSearchTests -->
+    </classes>
+  </test> <!-- Google Search Box(failed) -->
+</suite> <!-- Failed suite [Automation Challenge Tests] -->

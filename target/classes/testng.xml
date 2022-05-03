@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Automation Challenge Tests">
+
+	<!-- <listeners> <listener class-name = "com.projectName.extentReport.ExtentReporterNG" 
+		/> </listeners> -->
+
+	<test name="Google Search Box">
+		<parameter name="browserName" value="chrome" />
+		<parameter name="url" value="https://www.google.com/" />
+		<parameter name="keyword" value="MAVEN" />
+		<classes>
+			<class name="com.projectName.testCases.GoogleSearchTests">
+			</class>
+		</classes>
+	</test>
+
+ 	<test name="Bing Search Box">
+		<parameter name="browserName" value="chrome" />
+		<parameter name="url" value="https://www.bing.com/" />
+		<parameter name="keyword" value="MAVEN" />
+		<classes>
+			<class name="com.projectName.testCases.BingSearchTests">
+			</class>
+		</classes>
+	</test>
+
+
+</suite>
