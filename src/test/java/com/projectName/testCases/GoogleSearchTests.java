@@ -1,6 +1,8 @@
 package com.projectName.testCases;
 
 import java.util.List;
+import java.util.stream.Collectors;
+
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -9,6 +11,8 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import com.projectName.base.Base;
 import com.projectName.base.WaitActions;
+import com.projectName.pageObjects.BingHomePage;
+import com.projectName.pageObjects.BingResultsPage;
 import com.projectName.pageObjects.GoogleHomePage;
 import com.projectName.pageObjects.GoogleResultsPage;
 import org.testng.asserts.SoftAssert;
@@ -19,6 +23,8 @@ public class GoogleSearchTests extends Base {
 	
 	GoogleHomePage googleHomePage;
 	GoogleResultsPage googleResultsPage;
+	BingHomePage bingHomePage;
+	BingResultsPage bingResultsPage;
 	
 	//Initialize driver and launch URL before the tests
 	
@@ -28,6 +34,8 @@ public class GoogleSearchTests extends Base {
 		initializeDriver(browserName, url);
 		googleHomePage = new GoogleHomePage();
 		googleResultsPage = new GoogleResultsPage();
+		bingHomePage = new BingHomePage();
+		bingResultsPage = new BingResultsPage();
 	}
 
 	//Tests
@@ -58,6 +66,33 @@ public class GoogleSearchTests extends Base {
 		
 	}
 	
+	
+	@Test
+    @Parameters({ "keyword" })
+    public void comparePopularResults(String keyword){
+        System.out.println("Testing both search engines and compare popular results......");
+
+        //Get google results    
+        googleHomePage.searchKeyword(keyword.toLowerCase());
+        WaitActions.waitForVisibilityOfElement(googleResultsPage.resultsLabel, 10);
+        List<WebElement> googleResults = googleResultsPage.getSearchResults();
+
+        //get bing results
+        driver.navigate().to("https://www.bing.com/");
+        System.out.println("Testing Bing search engine...");
+        bingHomePage.searchKeyword(keyword.toLowerCase());
+
+        WaitActions.waitForVisibilityOfElement(bingResultsPage.resultsLabel, 10);
+        List<WebElement> bingResults = bingResultsPage.getSearchResults();
+
+        List<WebElement> matchingElements = googleResults.stream()
+        										.filter(element -> bingResults.contains(element))
+        										.collect(Collectors.toList());
+        
+        System.out.println(matchingElements);
+        
+
+    }
 	
 	//Closing driver session and browser
 	

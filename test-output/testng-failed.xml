@@ -3,12 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.projectName.testCases.MostPopularItemsTests">
+      <class name="com.projectName.testCases.GoogleSearchTests">
         <methods>
+          <include name="tearDown"/>
+          <include name="comparePopularResults"/>
           <include name="init"/>
-          <include name="test"/>
+          <include name="validateSearchOnGoogle"/>
         </methods>
-      </class> <!-- com.projectName.testCases.MostPopularItemsTests -->
+      </class> <!-- com.projectName.testCases.GoogleSearchTests -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
