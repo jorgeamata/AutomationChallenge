@@ -1,4 +1,4 @@
-package com.projectName.pageObjects;
+package com.projectName.pageObjects.old;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

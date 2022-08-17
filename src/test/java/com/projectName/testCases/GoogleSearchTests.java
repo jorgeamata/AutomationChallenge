@@ -1,7 +1,6 @@
 package com.projectName.testCases;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -11,11 +10,10 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import com.projectName.base.Base;
 import com.projectName.base.WaitActions;
-import com.projectName.pageObjects.BingHomePage;
-import com.projectName.pageObjects.BingResultsPage;
-import com.projectName.pageObjects.GoogleHomePage;
-import com.projectName.pageObjects.GoogleResultsPage;
-import org.testng.asserts.SoftAssert;
+import com.projectName.pageObjects.old.BingHomePage;
+import com.projectName.pageObjects.old.BingResultsPage;
+import com.projectName.pageObjects.old.GoogleHomePage;
+import com.projectName.pageObjects.old.GoogleResultsPage;
 
 public class GoogleSearchTests extends Base {
 
@@ -67,7 +65,7 @@ public class GoogleSearchTests extends Base {
 	}
 	
 	
-	@Test
+	//@Test
     @Parameters({ "keyword" })
     public void comparePopularResults(String keyword){
         System.out.println("Testing both search engines and compare popular results......");
@@ -85,11 +83,11 @@ public class GoogleSearchTests extends Base {
         WaitActions.waitForVisibilityOfElement(bingResultsPage.resultsLabel, 10);
         List<WebElement> bingResults = bingResultsPage.getSearchResults();
 
-        List<WebElement> matchingElements = googleResults.stream()
-        										.filter(element -> bingResults.contains(element))
-        										.collect(Collectors.toList());
+        //List<WebElement> matchingElements = googleResults.stream()
+		// .filter(element -> bingResults.contains(element))
+		//.collect(Collectors.toList());
         
-        System.out.println(matchingElements);
+        //System.out.println(matchingElements);
         
 
     }

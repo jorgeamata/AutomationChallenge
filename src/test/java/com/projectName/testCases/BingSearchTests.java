@@ -10,8 +10,8 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import com.projectName.base.Base;
 import com.projectName.base.WaitActions;
-import com.projectName.pageObjects.BingHomePage;
-import com.projectName.pageObjects.BingResultsPage;
+import com.projectName.pageObjects.old.BingHomePage;
+import com.projectName.pageObjects.old.BingResultsPage;
 
 public class BingSearchTests extends Base {
 

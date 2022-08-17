@@ -3,9 +3,9 @@
 
 <suite name="Automation Challenge Tests">
 
-	<!-- <listeners> <listener class-name = "com.projectName.extentReport.ExtentReporterNG" 
+	<!-- <listeners> <listener class-name = "com.projectName.extentReport.ExtentReporterNG"
 		/> </listeners> -->
-
+	<!--
 	<test name="Google Search Box">
 		<parameter name="browserName" value="chrome" />
 		<parameter name="url" value="https://www.google.com/" />
@@ -25,6 +25,16 @@
 			</class>
 		</classes>
 	</test>
+	-->
 
+	<test name="Test">
+		<parameter name="browserName" value="chrome" />
+		<parameter name="url" value="https://www.amazon.com/" />
+		<!--<parameter name="keyword" value="MAVEN" />-->
+		<classes>
+			<class name="com.agileThought.testCases.Test001">
+			</class>
+		</classes>
+	</test>
 
 </suite>
