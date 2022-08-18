@@ -2,28 +2,25 @@ package com.projectName.pageObjects;
 
 import com.projectName.base.Base;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import java.util.List;
-
-public class HomePage extends Base {
+public class LoginPage extends Base {
 
     //Page Objects Factory
 
-    @FindAll(@FindBy(xpath = "//div[@class='ng-star-inserted']/mat-grid-list"))
-    public List<WebElement> itemsList;
+    /*
+    @FindBy(xpath = "//span[@class='mat-button-wrapper']//span[contains(text(), 'Account')]")
+    public WebElement btnAccount;
+    */
+
 
     // Constructor
-    public HomePage() {
+    public LoginPage() {
         PageFactory.initElements(driver, this);
     }
 
     // Actions
-
-
-
 
 
 }

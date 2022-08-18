@@ -9,7 +9,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import com.projectName.base.Base;
-import com.projectName.base.WaitActions;
+import com.projectName.base.Utils;
 import com.projectName.pageObjects.old.BingHomePage;
 import com.projectName.pageObjects.old.BingResultsPage;
 import com.projectName.pageObjects.old.GoogleHomePage;
@@ -44,7 +44,7 @@ public class GoogleSearchTests extends Base {
 		System.out.println("Testing Google search engine......");
 		googleHomePage.searchKeyword(keyword.toLowerCase());
 		
-		WaitActions.waitForVisibilityOfElement(googleResultsPage.resultsLabel, 10);
+		Utils.waitForVisibilityOfElement(googleResultsPage.resultsLabel, 10);
 		
 		
 		List<WebElement> results = googleResultsPage.getSearchResults();
@@ -72,7 +72,7 @@ public class GoogleSearchTests extends Base {
 
         //Get google results    
         googleHomePage.searchKeyword(keyword.toLowerCase());
-        WaitActions.waitForVisibilityOfElement(googleResultsPage.resultsLabel, 10);
+        Utils.waitForVisibilityOfElement(googleResultsPage.resultsLabel, 10);
         List<WebElement> googleResults = googleResultsPage.getSearchResults();
 
         //get bing results
@@ -80,7 +80,7 @@ public class GoogleSearchTests extends Base {
         System.out.println("Testing Bing search engine...");
         bingHomePage.searchKeyword(keyword.toLowerCase());
 
-        WaitActions.waitForVisibilityOfElement(bingResultsPage.resultsLabel, 10);
+        Utils.waitForVisibilityOfElement(bingResultsPage.resultsLabel, 10);
         List<WebElement> bingResults = bingResultsPage.getSearchResults();
 
         //List<WebElement> matchingElements = googleResults.stream()
