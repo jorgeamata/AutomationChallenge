@@ -29,7 +29,7 @@
 
 	<test name="Automation Challenge Test">
 		<parameter name="browserName" value="chrome" />
-		<parameter name="url" value="https://www.amazon.com/" />
+		<parameter name="url" value="https://juice-shop.herokuapp.com/#/" />
 		<classes>
 			<class name="com.agileThought.testCases.Test001">
 			</class>
