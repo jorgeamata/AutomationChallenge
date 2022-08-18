@@ -12,7 +12,7 @@ public class NavigationBar extends Base {
     @FindBy(xpath="//span[@class='mat-search_icons ng-tns-c254-1']")
     public WebElement searchIcon;
 
-    @FindBy(xpath="//input[@id='mat-input-0']")
+    @FindBy(id ="mat-input-0") //"//input[@id='mat-input-0']"
     public WebElement searchTextField;
 
     @FindBy(xpath = "//span[@class='mat-button-wrapper']//span[contains(text(), 'Account')]")
