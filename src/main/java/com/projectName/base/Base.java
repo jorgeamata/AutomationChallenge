@@ -1,22 +1,22 @@
 package com.projectName.base;
 
+import com.projectName.pages.TemplatePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Base {
 	
 	public static WebDriver driver;
-	
-	
-	public static void initializeDriver(String browserName, String url) {
+	//declare page instances
+		//public static TemplatePage templatePage;
+
+
+	private void initDriverSession(String browserName, String url) {
 		switch(browserName.toLowerCase()) {
 		case "chrome":
 			WebDriverManager.chromedriver().setup();
@@ -32,10 +32,25 @@ public class Base {
 			System.out.println("Browser " + browserName + " is not supported");
 			break;
 		}
-		
-		driver.get(url);
-		driver.manage().window().maximize();
-		driver.manage().deleteAllCookies();
+	}
+
+	@BeforeMethod
+	@Parameters({ "browserName", "url" })
+	public void initApplication(String browserName, String url) {
+		this.initDriverSession(browserName, url);
+
+		WebDriverSteps.navigateToApplication(url);
+
+		//Pages instantiation
+			//templatePage = new TemplatePage();
+
+
+
+	}
+
+	@AfterMethod
+	public static void tearDown() {
+		driver.quit();
 	}
 	
 	

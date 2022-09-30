@@ -15,23 +15,13 @@
 			</class>
 		</classes>
 	</test>
-
- 	<test name="Bing Search Box">
-		<parameter name="browserName" value="chrome" />
-		<parameter name="url" value="https://www.bing.com/" />
-		<parameter name="keyword" value="MAVEN" />
-		<classes>
-			<class name="com.projectName.testCases.BingSearchTests">
-			</class>
-		</classes>
-	</test>
 	-->
 
 	<test name="Automation Challenge Test">
 		<parameter name="browserName" value="chrome" />
-		<parameter name="url" value="https://juice-shop.herokuapp.com/#/" />
+		<parameter name="url" value="https://www.amazon.com.mx/" />
 		<classes>
-			<class name="com.agileThought.testCases.Test001">
+			<class name="com.projectName.tests.TestTemplate">
 			</class>
 		</classes>
 	</test>
